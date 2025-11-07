@@ -25,6 +25,7 @@ var session      = require('express-session');
 var configDB = require('./config/database.js');
 
 var db
+app.use(express.static('public'));
 
 // configuration ===============================================================
 mongoose.connect(configDB.url, (err, database) => {
@@ -40,7 +41,7 @@ app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'))
+
 
 
 app.set('view engine', 'ejs'); // set up ejs for templating
@@ -58,7 +59,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // launch ======================================================================
 app.listen(port);
-console.log('The magic happens on port ' + port);
+console.log('Swapping Skills happens on port ' + port);
 
 
 

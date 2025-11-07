@@ -1,42 +1,166 @@
-/* Box Model Hack */
-* {
-  box-sizing: border-box;
-}
-
-/* Clear fix hack */
-.clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
-}
-
-.clear {
-	clear: both;
-}
-
-/******************************************
-/* BASE STYLES
-/*******************************************/
-
+/* ------------------------------
+   BASE STYLES
+------------------------------ */
 body {
-
+  background-color: #f4f6f9;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-
-/******************************************
-/* LAYOUT
-/*******************************************/
-header {
-
+.container {
+  margin-top: 50px;
 }
 
-footer {
-
+/* ------------------------------
+ HEADINGS
+------------------------------ */
+h1, h3 {
+  font-weight: 700;
+  color: #333;
 }
 
-/******************************************
-/* ADDITIONAL STYLES
-/*******************************************/
+h1 {
+  margin-bottom: 30px;
+}
+
+/* ------------------------------
+ BUTTONS
+------------------------------ */
+.btn {
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.btn-warning {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #ec971f;
+  border-color: #d58512;
+  color: #fff;
+}
+
+.btn-default {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.btn-default:hover {
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+/* ------------------------------
+ FORMS
+------------------------------ */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #f0ad4e;
+  box-shadow: 0 0 5px rgba(240, 173, 78, 0.5);
+}
+
+/* ------------------------------
+ ALERTS
+------------------------------ */
+.alert-danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+/* ------------------------------
+ PAGE HEADER / JUMBOTRON
+------------------------------ */
+.page-header {
+  margin-bottom: 40px;
+  border-bottom: none;
+}
+
+.jumbotron {
+  background-color: #fff;
+  padding: 50px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.jumbotron h1 {
+  margin-bottom: 30px;
+}
+
+.jumbotron .btn {
+  margin: 5px;
+}
+
+/* ------------------------------
+ SKILL CARDS (Profile / Messages)
+------------------------------ */
+.skill-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-2px);
+}
+
+.skill-card .name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.skill-card .msg {
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* ------------------------------
+ INPUTS INLINE (Post Skill)
+------------------------------ */
+form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* ------------------------------
+ LINKS
+------------------------------ */
+a {
+  color: #f04ef0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------
+ MEDIA QUERIES (RESPONSIVE)
+------------------------------ */
+@media (max-width: 768px) {
+  .col-sm-6 {
+      margin-bottom: 20px;
+  }
+}

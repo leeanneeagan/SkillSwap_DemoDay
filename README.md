@@ -4,7 +4,7 @@
 
 ---
 
-## 🧩 Features
+## Features
 
 - **User Authentication**: Secure email sign-up and login system.
 - **Community Board**: Post, browse, and interact with skill swaps, volunteer opportunities, or service trades.
@@ -15,7 +15,7 @@
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap / Tailwind (or your chosen framework)  
 - **Backend**: Node.js + Express  
@@ -25,7 +25,7 @@
 
 ---
 
-## 📂 Installation
+## Installation
 
 1. **Clone the repository**
 ```bash
@@ -56,7 +56,7 @@ Navigate to: http://localhost:3000
 
 ---
 
-## 📌 Usage
+## Usage
 
 - Sign up or log in with your email.
  
@@ -70,7 +70,7 @@ Navigate to: http://localhost:3000
 
 ---
 
-## 🤝 How It Works
+## How It Works
 
 - Users create an account with email and password.
 - Posts include skill description, type (swap, volunteer, service), and location.
@@ -80,23 +80,18 @@ Navigate to: http://localhost:3000
 
 ---
 
-## 🔧 Future Enhancements
+## Future Enhancements
 
 - Messaging system within the app.
 - Ratings and reviews for users.
 - Filter posts by skill category, distance, or type of exchange.
 - Push notifications for nearby opportunities.
 
----
-
-## 📜 License
-
-This project is open-source and available under the MIT License
 
 
 ---
 
-## 🌟 Acknowledgements
+## Acknowledgements
 
 Built using Node.js, Express, MongoDB, and modern frontend frameworks.
 

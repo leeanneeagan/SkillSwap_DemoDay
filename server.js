@@ -1,55 +1,67 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
-const PORT = 8000
-
-app.use(cors())
-
-const rappers = {
-    '21 savage': {
-        'age': 29,
-        'birthName': 'Shéyaa Bin Abraham-Joseph',
-        'birthLocation': 'London, England'
-    },
-    'chance the rapper': {
-        'age': 29,
-        'birthName': 'Chancelor Bennett',
-        'birthLocation': 'Chicago, Illinois'
-    }, 
-    'drake': {
-        'age': 38,
-        'birthName': 'Aubery Drake Graham',
-        'birthLocation': 'Tornonto, Canada'
-    },
-    'unknown': {
-        'age': 0,
-        'birthName': 'unknown',
-        'birthLocation': 'unknown'
-    },
-
-   
-}
+// <!-- Project Foundation  
+// This project was built using a template as a starting point and customized to fit the app’s unique features and design.  
+// All final code and design choices were reviewed, tested, and implemented by the author.
+//  -->
 
 
-app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/index.html')
-})
-app.get('/main.js', (request, response) => {
-    response.sendFile(__dirname + '/main.js')
-})
 
-app.get('/api/:name', (request, response) => {
-    const rapperName = request.params.name.toLowerCase()
+// server.js
 
-    if (rappers[rapperName]) {
-        response.json(rappers[rapperName])
-    } else {
-        response.json(rappers['unknown'])
-    }
+// set up ======================================================================
+// get all the tools we need
+var express  = require('express');
+var app      = express();
+var port     = process.env.PORT || 8080;
+const MongoClient = require('mongodb').MongoClient
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash    = require('connect-flash');
 
-})
+var morgan       = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
+var session      = require('express-session');
 
-app.listen(process.env.PORT || PORT, () => {
-    console.log(`The server is now running on port ${PORT}! Betta Go Catch It!`)
-})
+var configDB = require('./config/database.js');
+
+var db
+
+// configuration ===============================================================
+mongoose.connect(configDB.url, (err, database) => {
+  if (err) return console.log(err)
+  db = database
+  require('./app/routes.js')(app, passport, db);
+}); // connect to our database
+
+require('./config/passport')(passport); // pass passport for configuration
+
+// set up our express application
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.json()); // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'))
+
+
+app.set('view engine', 'ejs'); // set up ejs for templating
+
+// required for passport
+app.use(session({
+    secret: 'rcbootcamp2021b', // session secret
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+// launch ======================================================================
+app.listen(port);
+console.log('The magic happens on port ' + port);
+
+
+
+
+
 
